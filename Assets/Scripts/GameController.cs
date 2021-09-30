@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     [SerializeField] List<Difficulty> difficulties = new List<Difficulty>();
-    [SerializeField] Text questionText;
+
+    [Header("Screens")]
+    [SerializeField] GameObject gameScreen;
+    [SerializeField] GameObject gameOverScreen;
+
+    [Header("Questions")]
     [SerializeField] Button[] buttons;
+    [SerializeField] Text questionText;
     [SerializeField] Text[] options;
 
     [Header("Buttons State")]
@@ -17,7 +24,7 @@ public class GameController : MonoBehaviour
 
     List<Question> questions = new List<Question>();
     Question currentQuestion;
-    int roundsLeft = 5;
+    int roundsLeft = 2;
 
     void Start()
     {
@@ -80,7 +87,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator WaitForNextQuestion()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         foreach (var button in buttons)
         {
@@ -93,6 +100,12 @@ public class GameController : MonoBehaviour
 
     void GameOver()
     {
-        // Game Over
+        gameScreen.SetActive(false);
+        gameOverScreen.SetActive(true);
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
