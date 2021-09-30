@@ -2,5 +2,5 @@ using UnityEngine;
 
 public static class DifficultyManager
 {
-    public static string difficulty;
+    public static string difficulty = "easy";
 }
