@@ -22,9 +22,20 @@ public class GameController : MonoBehaviour
     [SerializeField] Sprite wrongButton;
     [SerializeField] Sprite correctButton;
 
+    [Header("Score")]
+    [SerializeField] Text scoreText;
+    [SerializeField] Text bestScoreText;
+
+    [Header("Score Game Over")]
+    [SerializeField] Text scoreGameOverText;
+    [SerializeField] Text bestScoreGameOverText;
+
     List<Question> questions = new List<Question>();
+    Difficulty currentDifficulty;
     Question currentQuestion;
     int roundsLeft = 2;
+    int score = 0;
+    int bestScore;
 
     void Start()
     {
@@ -32,10 +43,14 @@ public class GameController : MonoBehaviour
         {
             if (difficulty.name.ToLower() == DifficultyManager.difficulty)
             {
+                currentDifficulty = difficulty;
                 questions = difficulty.questions;
                 break;
             }
         }
+
+        bestScore = PlayerPrefs.GetInt(currentDifficulty.name, 0);
+        bestScoreText.text = $"RECORDE: {bestScore}";
 
         NextQuestion();
     }
@@ -75,6 +90,8 @@ public class GameController : MonoBehaviour
         if (option.text == currentQuestion.correctAnswer)
         {
             button.GetComponent<Image>().sprite = correctButton;
+            score += currentDifficulty.score;
+            scoreText.text = $"PONTOS: {score}";
         } else
         {
             button.GetComponent<Image>().sprite = wrongButton;
@@ -102,6 +119,16 @@ public class GameController : MonoBehaviour
     {
         gameScreen.SetActive(false);
         gameOverScreen.SetActive(true);
+        scoreGameOverText.text = score.ToString();
+
+        if (score > bestScore)
+        {
+            PlayerPrefs.SetInt(currentDifficulty.name, score);
+            bestScoreGameOverText.text = score.ToString();
+        } else
+        {
+            bestScoreGameOverText.text = bestScore.ToString();
+        }
     }
 
     public void Retry()

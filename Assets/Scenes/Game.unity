@@ -2107,7 +2107,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'PONTOS: 200'
+  m_Text: 'PONTOS: 0'
 --- !u!222 &1518335338
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2436,6 +2436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulties:
   - name: Easy
+    score: 50
     questions:
     - question: "Porque o Estados Unidos sofre com n\xE3o sei o que l\xE1?"
       correctAnswer: sim
@@ -2448,6 +2449,7 @@ MonoBehaviour:
       wrongAnswer2: talvez
       wrongAnswer3: um dia
   - name: Medium
+    score: 100
     questions:
     - question: Porque tal coisa?
       correctAnswer: Sim
@@ -2455,6 +2457,7 @@ MonoBehaviour:
       wrongAnswer2: Talvez
       wrongAnswer3: "Ja\xE9"
   - name: Hard
+    score: 150
     questions:
     - question: "Pergunta dif\xEDcil?"
       correctAnswer: sim
@@ -2477,3 +2480,7 @@ MonoBehaviour:
   defaultButton: {fileID: 6761661820457190243, guid: 73baa7eb217626744b293f61e73ba142, type: 3}
   wrongButton: {fileID: 1054601423716340012, guid: 73baa7eb217626744b293f61e73ba142, type: 3}
   correctButton: {fileID: 736373156980623226, guid: 73baa7eb217626744b293f61e73ba142, type: 3}
+  scoreText: {fileID: 1518335337}
+  bestScoreText: {fileID: 957882483}
+  scoreGameOverText: {fileID: 1388680246}
+  bestScoreGameOverText: {fileID: 1098686390}
