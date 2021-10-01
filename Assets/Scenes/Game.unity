@@ -1990,10 +1990,10 @@ RectTransform:
   m_Father: {fileID: 67082166}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 723, y: 235}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1503974540
 MonoBehaviour:
@@ -2435,35 +2435,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulties:
-  - name: Easy
-    score: 50
-    questions:
-    - question: "Porque o Estados Unidos sofre com n\xE3o sei o que l\xE1?"
-      correctAnswer: sim
-      wrongAnswer1: "n\xE3o"
-      wrongAnswer2: talvez
-      wrongAnswer3: um dia
-    - question: Teste?
-      correctAnswer: sim
-      wrongAnswer1: "n\xE3o"
-      wrongAnswer2: talvez
-      wrongAnswer3: um dia
-  - name: Medium
-    score: 100
-    questions:
-    - question: Porque tal coisa?
-      correctAnswer: Sim
-      wrongAnswer1: "N\xE3o"
-      wrongAnswer2: Talvez
-      wrongAnswer3: "Ja\xE9"
-  - name: Hard
-    score: 150
-    questions:
-    - question: "Pergunta dif\xEDcil?"
-      correctAnswer: sim
-      wrongAnswer1: nao
-      wrongAnswer2: talvez
-      wrongAnswer3: vez
+  - {fileID: 11400000, guid: 621ea7fe6804dc1419415ab600eda98f, type: 2}
+  - {fileID: 11400000, guid: e1710ae01437f154985f532fcc6b89a9, type: 2}
+  - {fileID: 11400000, guid: 07a120da23ac95e458fcd28c9294c528, type: 2}
   gameScreen: {fileID: 2005859716}
   gameOverScreen: {fileID: 1449291230}
   buttons:

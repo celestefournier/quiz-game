@@ -1,6 +1,4 @@
-using UnityEngine;
-
 public static class DifficultyManager
 {
-    public static string difficulty = "easy";
+    public static string difficulty;
 }

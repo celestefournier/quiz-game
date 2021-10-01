@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
     List<Question> questions = new List<Question>();
     Difficulty currentDifficulty;
     Question currentQuestion;
-    int roundsLeft = 2;
+    int roundsLeft;
     int score = 0;
     int bestScore;
 
@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour
             {
                 currentDifficulty = difficulty;
                 questions = difficulty.questions;
+                roundsLeft = questions.Count;
                 break;
             }
         }

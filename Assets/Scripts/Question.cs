@@ -1,11 +1,11 @@
 using UnityEngine;
 
-[System.Serializable]
-public class Question
+[CreateAssetMenu(fileName = "Question", menuName = "Question")]
+public class Question : ScriptableObject
 {
     [TextArea] public string question;
-    [TextArea] public string correctAnswer;
-    [TextArea] public string wrongAnswer1;
-    [TextArea] public string wrongAnswer2;
-    [TextArea] public string wrongAnswer3;
+    public string correctAnswer;
+    public string wrongAnswer1;
+    public string wrongAnswer2;
+    public string wrongAnswer3;
 }

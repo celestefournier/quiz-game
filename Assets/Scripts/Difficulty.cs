@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using UnityEngine;
 
-[System.Serializable]
-public class Difficulty
+[CreateAssetMenu(fileName = "Difficulty", menuName = "Difficulty")]
+public class Difficulty : ScriptableObject
 {
     public string name;
     public int score;
