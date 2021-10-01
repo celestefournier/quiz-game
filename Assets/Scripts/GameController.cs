@@ -13,9 +13,11 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject gameOverScreen;
 
     [Header("Questions")]
-    [SerializeField] Button[] buttons;
     [SerializeField] Text questionText;
+    [SerializeField] Button tipButton;
+    [SerializeField] Button[] buttons;
     [SerializeField] Text[] options;
+    [SerializeField] CanvasGroup canvas;
 
     [Header("Buttons State")]
     [SerializeField] Sprite defaultButton;
@@ -36,6 +38,7 @@ public class GameController : MonoBehaviour
     int roundsLeft;
     int score = 0;
     int bestScore;
+    int tips = 3;
 
     void Start()
     {
@@ -62,6 +65,13 @@ public class GameController : MonoBehaviour
             GameOver();
             return;
         }
+
+        foreach (var button in buttons)
+        {
+            button.interactable = true;
+        }
+
+        tipButton.interactable = true;
 
         currentQuestion = questions[Random.Range(0, questions.Count)];
 
@@ -98,7 +108,7 @@ public class GameController : MonoBehaviour
             button.GetComponent<Image>().sprite = wrongButton;
         }
 
-        foreach (var btn in buttons) btn.enabled = false;
+        canvas.blocksRaycasts = false;
 
         StartCoroutine("WaitForNextQuestion");
     }
@@ -107,9 +117,10 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
+        canvas.blocksRaycasts = true;
+
         foreach (var button in buttons)
         {
-            button.enabled = true;
             button.gameObject.GetComponent<Image>().sprite = defaultButton;
         }
 
@@ -135,5 +146,31 @@ public class GameController : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void Tip(Text tipText)
+    {
+        if (tips <= 0) {
+            return;
+        }
+
+        int removedOptions = 0;
+        int index;
+
+        while(removedOptions < 2)
+        {
+            index = Random.Range(0, options.Length);
+            Button button = options[index].gameObject.transform.parent.GetComponent<Button>();
+
+            if (options[index].text != currentQuestion.correctAnswer && button.interactable)
+            {
+                button.interactable = false;
+                removedOptions++;
+            }
+        }
+
+        tips--;
+        tipText.text = tips.ToString();
+        tipButton.interactable = false;
     }
 }
