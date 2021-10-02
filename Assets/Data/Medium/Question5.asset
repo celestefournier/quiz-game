@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Question5
   m_EditorClassIdentifier: 
   question: "Qual a m\xE1scara mais adequada para se proteger contra o COVID19?"
-  correctAnswer: "PPF2 sem v\xE1vula"
-  wrongAnswer1: "PPF2 com v\xE1lvula"
+  correctAnswer: "PFF2 sem v\xE1vula"
+  wrongAnswer1: "PFF2 com v\xE1lvula"
   wrongAnswer2: "M\xE1scara de tecido"
   wrongAnswer3: "M\xE1scara Neopreme"
