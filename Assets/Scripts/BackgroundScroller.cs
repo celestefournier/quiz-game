@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class BackgroundScroller : MonoBehaviour
 {
-    public float speed = 1;
+    [SerializeField] float speed = 1;
 
     Vector2 textureOffset;
     Image image;
